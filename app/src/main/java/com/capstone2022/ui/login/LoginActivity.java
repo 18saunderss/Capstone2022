@@ -28,7 +28,7 @@ import com.capstone2022.ui.login.LoginViewModelFactory;
 import com.capstone2022.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
-
+//Comment
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
 
