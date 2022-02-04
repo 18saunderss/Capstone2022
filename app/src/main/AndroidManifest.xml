@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
+            android:name=".ui.register.Register"
+            android:exported="false"
+            android:label="@string/title_activity_register"
+            android:theme="@style/Theme.Capstone.NoActionBar" />
+        <activity
             android:name=".TabFromHomeActivity"
             android:exported="false"
             android:label="@string/title_activity_tab_from_home"
