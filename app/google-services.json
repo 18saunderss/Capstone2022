@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "348194185631",
+    "project_id": "recipe-app-2a19b",
+    "storage_bucket": "recipe-app-2a19b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348194185631:android:c249da619430b575761daa",
+        "android_client_info": {
+          "package_name": "com.capstone2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348194185631-4teq8ur120li9nrnnq4e47emlgc8jb27.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoEl00abvT6UdvpJHLl37LfRld5DRZjWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348194185631-4teq8ur120li9nrnnq4e47emlgc8jb27.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348194185631:android:e3d045aeb585e15e761daa",
+        "android_client_info": {
+          "package_name": "com.capstone2022.ui.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348194185631-4teq8ur120li9nrnnq4e47emlgc8jb27.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoEl00abvT6UdvpJHLl37LfRld5DRZjWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348194185631-4teq8ur120li9nrnnq4e47emlgc8jb27.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
