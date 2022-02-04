@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.capstone2022.R;
+import com.capstone2022.TabFromHomeActivity;
 import com.capstone2022.ui.login.LoginViewModel;
 import com.capstone2022.ui.login.LoginViewModelFactory;
 import com.capstone2022.databinding.ActivityLoginBinding;
@@ -117,9 +119,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
+                //PUT LOGIN CODE HERE
+                //loadingProgressBar.setVisibility(View.VISIBLE);
+                //loginViewModel.login(usernameEditText.getText().toString(),
+                //        passwordEditText.getText().toString());
+                switchActivities();
             }
         });
     }
@@ -132,5 +136,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    private void switchActivities()
+    {
+        Intent switchActivityIntent = new Intent(this, TabFromHomeActivity.class);
+        startActivity(switchActivityIntent);
     }
 }
