@@ -25,14 +25,14 @@ import android.widget.Toast;
 
 import com.capstone2022.R;
 import com.capstone2022.TabFromHomeActivity;
-import com.capstone2022.ui.login.LoginViewModel;
-import com.capstone2022.ui.login.LoginViewModelFactory;
+import com.capstone2022.ui.register.Register;
 import com.capstone2022.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
 //Comment
     private LoginViewModel loginViewModel;
-    private ActivityLoginBinding binding;
+    //private ActivityLoginBinding binding;
+    public ActivityLoginBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,9 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
+
+        final Button registerButton = binding.login2;
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -126,6 +129,16 @@ public class LoginActivity extends AppCompatActivity {
                 switchActivities();
             }
         });
+
+        registerButton.setEnabled(true);
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            //registerButton.setEnabled(1);
+            public void onClick(View v) {
+                switchToRegister();
+            }
+        });
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -141,6 +154,12 @@ public class LoginActivity extends AppCompatActivity {
     private void switchActivities()
     {
         Intent switchActivityIntent = new Intent(this, TabFromHomeActivity.class);
+        startActivity(switchActivityIntent);
+    }
+
+    private void switchToRegister()
+    {
+        Intent switchActivityIntent = new Intent(this, Register.class);
         startActivity(switchActivityIntent);
     }
 }
