@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 registerActivity();
-                //startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
     }
@@ -76,6 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
     };
 
     public void registerActivity(){
+
         String email = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
@@ -101,13 +102,14 @@ public class RegisterActivity extends AppCompatActivity {
                                    if(task.isSuccessful()){
                                      Toast.makeText(RegisterActivity.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
                                      progressBar.setVisibility(View.VISIBLE);
-
+                                       System.out.println("worked");
 
                                    }
                                    else
                                    {
                                      Toast.makeText(RegisterActivity.this, "Failed to register. Please try again.", Toast.LENGTH_LONG).show();
                                      progressBar.setVisibility(View.VISIBLE);
+
                                    }
 
                                 }
@@ -117,6 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(RegisterActivity.this, "Failed to register. Please try again.", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.VISIBLE);
+
                 }
             }
         });
