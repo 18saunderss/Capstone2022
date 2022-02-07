@@ -31,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     TextView register;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,13 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister = findViewById(R.id.login);
 
         register = findViewById(R.id.login);
+
+
+       // if(fAuth.getCurrentUser()!= null)
+       // {
+       //     startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+       //     finish();
+        //}
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String email = editTextUsername.getText().toString().trim();

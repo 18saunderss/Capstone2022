@@ -9,8 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -18,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonSignIn;
+
+    private FirebaseAuth fAuth;
 
 
     TextView register;
@@ -33,16 +42,34 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
 
-        editTextUsername.addTextChangedListener(loginTextWatcher);
-        editTextPassword.addTextChangedListener(loginTextWatcher);
+        //editTextUsername.addTextChangedListener(loginTextWatcher);
+        //editTextPassword.addTextChangedListener(loginTextWatcher);
 
-        loginActivityChange.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+        buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
             public void onClick(View v)
             {
-                loginUser();
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                String email = editTextUsername.getText().toString().trim();
+                String password = editTextPassword.getText().toString().trim();
+                fAuth = FirebaseAuth.getInstance();
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        }
+                        else
+                        {
+                            Toast.makeText(LoginActivity.this, "Error !" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+                //loginUser();
+                //startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             }
         });
 
@@ -57,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
-    private TextWatcher loginTextWatcher = new TextWatcher()                                              //This method "watches" for changes in the username and password fields.
+    /*private TextWatcher loginTextWatcher = new TextWatcher()                                              //This method "watches" for changes in the username and password fields.
     {                                                                                                     //If user inputs text into username and password fields, it enables the Register button
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -75,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }
     };
-
+*/
     public void loginUser() {
         String email = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
