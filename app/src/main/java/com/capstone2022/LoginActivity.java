@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonSignIn;
+
 
     TextView register;
     TextView loginActivityChange;
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                loginUser();
                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             }
         });
@@ -73,5 +76,17 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
+    public void loginUser() {
+        String email = editTextUsername.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextUsername.setError("Please provide valid email");
+            editTextUsername.requestFocus();
+            return;
+        }
+
+    }
 
 }
