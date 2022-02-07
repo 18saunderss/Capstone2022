@@ -26,56 +26,66 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonRegister;
     private ProgressBar progressBar;
-    private FirebaseAuth mAuth;
+    FirebaseAuth fAuth;
+    //private FirebaseAuth mAuth;
 
     TextView register;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
 
-
-        mAuth = FirebaseAuth.getInstance();
+        fAuth=FirebaseAuth.getInstance();
 
         editTextUsername = findViewById(R.id.username);
         editTextPassword = findViewById(R.id.password);
         buttonRegister = findViewById(R.id.login);
 
-        editTextUsername.addTextChangedListener(registerTextWatcher);
-        editTextPassword.addTextChangedListener(registerTextWatcher);
+        register = findViewById(R.id.login);
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String email = editTextUsername.getText().toString().trim();
+                String password = editTextPassword.getText().toString().trim();
 
-        register=findViewById(R.id.login);
-        register.setOnClickListener(new View.OnClickListener()                                          //Intent to open LoginActivity when "Register" is selected
-        {
-            @Override
-            public void onClick(View v)
-            {
-                registerActivity();
-                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        } else {
+                            Toast.makeText(RegisterActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
             }
         });
-    }
 
-    private TextWatcher registerTextWatcher = new TextWatcher()                                         //This method "watches" for changes in the username and password fields.
-    {                                                                                                   //If user inputs text into username and password fields, it enables the Register button
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
+        /*TextWatcher registerTextWatcher = new TextWatcher()                                         //This method "watches" for changes in the username and password fields.
+        {                                                                                                   //If user inputs text into username and password fields, it enables the Register button
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String usernameInput = editTextUsername.getText().toString().trim();
-            String passwordInput = editTextPassword.getText().toString().trim();
-            buttonRegister.setEnabled(!usernameInput.isEmpty() && !passwordInput.isEmpty());
-        }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String usernameInput = editTextUsername.getText().toString().trim();
+                String passwordInput = editTextPassword.getText().toString().trim();
+                buttonRegister.setEnabled(!usernameInput.isEmpty() && !passwordInput.isEmpty());
+            }
 
-        @Override
-        public void afterTextChanged(Editable s) {
+            @Override
+            public void afterTextChanged(Editable s) {
 
-        }
-    };
+            }
+        };
+        */
 
-    public void registerActivity(){
+
+
+    /*public void registerActivity(){
 
         String email = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -124,6 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-    }
+    */
 
+    }
 }
