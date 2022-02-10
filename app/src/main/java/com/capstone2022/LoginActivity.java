@@ -27,17 +27,21 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonSignIn;
 
+
     private FirebaseAuth fAuth;
 
 
     TextView register;
+    TextView reset;
     TextView loginActivityChange;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
         register=findViewById(R.id.register);
+        reset=findViewById(R.id.reset);
         loginActivityChange = findViewById(R.id.login);
+
 
         editTextUsername = findViewById(R.id.username);
         editTextPassword = findViewById(R.id.password);
@@ -81,6 +85,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
+            }
+        });
+
+
         register.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
@@ -89,6 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
+
+
 
 
     }
