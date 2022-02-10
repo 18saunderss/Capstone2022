@@ -3,6 +3,7 @@ package com.capstone2022;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
 
-    TextView resetPassword;
+
     TextView register;
     TextView loginActivityChange;
     @Override
@@ -36,16 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
         register=findViewById(R.id.register);
-        resetPassword=findViewById(R.id.resetPassword);
         loginActivityChange = findViewById(R.id.login);
 
         editTextUsername = findViewById(R.id.username);
         editTextPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
 
-
-        //editTextUsername.addTextChangedListener(loginTextWatcher);
-        //editTextPassword.addTextChangedListener(loginTextWatcher);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
@@ -54,6 +51,18 @@ public class LoginActivity extends AppCompatActivity {
             {
                 String email = editTextUsername.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
+
+                if(TextUtils.isEmpty(email))
+                {
+                    editTextUsername.setError("Email is required");
+                    return;
+                }
+                if (TextUtils.isEmpty(password))
+                {
+                    editTextPassword.setError("Password is required");
+                    return;
+                }
+
                 fAuth = FirebaseAuth.getInstance();
                 fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -69,9 +78,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-                //loginUser();
-                //startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             }
         });
 
@@ -84,37 +90,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        resetPassword.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
-        {
-            @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
-            }
-        });
-
 
     }
-    /*private TextWatcher loginTextWatcher = new TextWatcher()                                              //This method "watches" for changes in the username and password fields.
-    {                                                                                                     //If user inputs text into username and password fields, it enables the Register button
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String usernameInput = editTextUsername.getText().toString().trim();
-            String passwordInput = editTextPassword.getText().toString().trim();
-            buttonSignIn.setEnabled(!usernameInput.isEmpty() && !passwordInput.isEmpty());
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-    };
-*/
-    public void loginUser() {
+    public void loginUser() {                                                                               //I don't know if this method actually does anything
         String email = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 

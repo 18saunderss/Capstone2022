@@ -46,17 +46,12 @@ public class RegisterActivity extends AppCompatActivity {
         register = findViewById(R.id.login);
 
 
-       // if(fAuth.getCurrentUser()!= null)
-       // {
-       //     startActivity(new Intent(getApplicationContext(),LoginActivity.class));
-       //     finish();
-        //}
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        buttonRegister.setOnClickListener(new View.OnClickListener() {                              //OnClickListener for register button
             public void onClick(View v) {
                 String email = editTextUsername.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
-                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {          //Registers new account
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -70,79 +65,6 @@ public class RegisterActivity extends AppCompatActivity {
                 });
             }
         });
-
-        /*TextWatcher registerTextWatcher = new TextWatcher()                                         //This method "watches" for changes in the username and password fields.
-        {                                                                                                   //If user inputs text into username and password fields, it enables the Register button
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String usernameInput = editTextUsername.getText().toString().trim();
-                String passwordInput = editTextPassword.getText().toString().trim();
-                buttonRegister.setEnabled(!usernameInput.isEmpty() && !passwordInput.isEmpty());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        };
-        */
-
-
-
-    /*public void registerActivity(){
-
-        String email = editTextUsername.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-
-
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextUsername.setError("Please provide valid email");
-            editTextUsername.requestFocus();
-            return;
-        }
-
-        progressBar.setVisibility(View.VISIBLE);
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                   User user = new User(email,password);
-
-                     FirebaseDatabase.getInstance().getReference("Users")
-                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                   if(task.isSuccessful()){
-                                     Toast.makeText(RegisterActivity.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
-                                     progressBar.setVisibility(View.VISIBLE);
-                                       System.out.println("worked");
-
-                                   }
-                                   else
-                                   {
-                                     Toast.makeText(RegisterActivity.this, "Failed to register. Please try again.", Toast.LENGTH_LONG).show();
-                                     progressBar.setVisibility(View.VISIBLE);
-
-                                   }
-
-                                }
-                    });
-
-                }
-                else{
-                    Toast.makeText(RegisterActivity.this, "Failed to register. Please try again.", Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.VISIBLE);
-
-                }
-            }
-        });
-
-    */
 
     }
 }
