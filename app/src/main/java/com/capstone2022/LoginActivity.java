@@ -22,48 +22,42 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-
-    private EditText editTextUsername;
-    private EditText editTextPassword;
+    private EditText editTextLoginEmail;
+    private EditText editTextLoginPassword;
     private Button buttonSignIn;
-
-
     private FirebaseAuth fAuth;
 
-
     TextView register;
-    TextView reset;
+    TextView resetPassword;
     TextView loginActivityChange;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
         register=findViewById(R.id.register);
-        reset=findViewById(R.id.reset);
+        resetPassword=findViewById(R.id.reset);
         loginActivityChange = findViewById(R.id.login);
-
-
-        editTextUsername = findViewById(R.id.username);
-        editTextPassword = findViewById(R.id.password);
+        editTextLoginEmail = findViewById(R.id.username);
+        editTextLoginPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
-
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
             public void onClick(View v)
             {
-                String email = editTextUsername.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
+                String email = editTextLoginEmail.getText().toString().trim();
+                String password = editTextLoginPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email))
                 {
-                    editTextUsername.setError("Email is required");
+                    editTextLoginEmail.setError("Email is required");
                     return;
                 }
                 if (TextUtils.isEmpty(password))
                 {
-                    editTextPassword.setError("Password is required");
+                    editTextLoginPassword.setError("Password is required");
                     return;
                 }
 
@@ -85,13 +79,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        reset.setOnClickListener(new View.OnClickListener() {
+        resetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, ResetPasswordActivity.class));
             }
         });
-
 
         register.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
@@ -101,20 +94,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
-
-
-
-
     }
 
     public void loginUser() {                                                                               //I don't know if this method actually does anything
-        String email = editTextUsername.getText().toString().trim();
-        String password = editTextPassword.getText().toString().trim();
-
+        String email = editTextLoginEmail.getText().toString().trim();
+        String password = editTextLoginPassword.getText().toString().trim();
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextUsername.setError("Please provide valid email");
-            editTextUsername.requestFocus();
+            editTextLoginEmail.setError("Please provide valid email");
+            editTextLoginPassword.requestFocus();
             return;
         }
 
