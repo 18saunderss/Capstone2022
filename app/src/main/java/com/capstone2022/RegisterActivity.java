@@ -22,15 +22,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText editTextUsername;
-    private EditText editTextPassword;
+    private EditText editTextRegisterEmail;
+    private EditText editTextRegisterPassword;
     private Button buttonRegister;
     private ProgressBar progressBar;
     FirebaseAuth fAuth;
-    //private FirebaseAuth mAuth;
-
     TextView register;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +35,15 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register2);
 
         fAuth=FirebaseAuth.getInstance();
-
-        editTextUsername = findViewById(R.id.username);
-        editTextPassword = findViewById(R.id.password);
+        editTextRegisterEmail = findViewById(R.id.username);
+        editTextRegisterPassword = findViewById(R.id.password);
         buttonRegister = findViewById(R.id.login);
-
         register = findViewById(R.id.login);
-
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {                              //OnClickListener for register button
             public void onClick(View v) {
-                String email = editTextUsername.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
+                String email = editTextRegisterEmail.getText().toString().trim();
+                String password = editTextRegisterPassword.getText().toString().trim();
 
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {          //Registers new account
                     @Override
