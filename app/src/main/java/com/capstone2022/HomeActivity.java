@@ -29,6 +29,12 @@ public class HomeActivity extends AppCompatActivity {
     final FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
+    public void onBackPressed(){
+        //for now, this is empty. So when the back button is pressed, nothing happens.
+        //Should code "double tap back to log out" with toast notification
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
