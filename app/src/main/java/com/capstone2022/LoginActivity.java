@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextLoginEmail;
     private EditText editTextLoginPassword;
     private Button buttonSignIn;
+    private Button goToIngredients;
     private FirebaseAuth fAuth;
 
     TextView register;
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextLoginEmail = findViewById(R.id.username);
         editTextLoginPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
+        goToIngredients = findViewById(R.id.goToIngredients);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
@@ -94,7 +96,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
+
+        goToIngredients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, IngredientActivity.class));
+            }
+        });
     }
+
+
 
     public void loginUser() {                                                                               //I don't know if this method actually does anything
         String email = editTextLoginEmail.getText().toString().trim();

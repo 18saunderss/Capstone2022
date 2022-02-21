@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.capstone2022">
+    package="com.capstone2022" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,7 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Capstone">
+        android:theme="@style/Theme.Capstone" >
+        <activity
+            android:name=".IngredientActivity"
+            android:exported="false" />
         <activity
             android:name=".ResetPasswordActivity"
             android:exported="false" />
@@ -20,7 +23,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
