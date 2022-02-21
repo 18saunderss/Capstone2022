@@ -116,7 +116,8 @@
     <string name="reset_password">Reset Password</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="send_verification_email">Send Verification Email</string>
-
+    <string name="recipeName">Recipe Name</string>
+    <string name="ingredients">Ingredients</string>
 
 
 </resources>
