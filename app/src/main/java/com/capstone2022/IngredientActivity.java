@@ -67,48 +67,48 @@ public class IngredientActivity extends AppCompatActivity {
             }
         });
 
-        //initializeListView();
+        initializeListView();
     }
 
-    //private void initializeListView() {
-        //listView = findViewById(R.id.ingredientList);
+    private void initializeListView() {
+        listView = findViewById(R.id.ingredientList);
 
-        //getIngredientDbRef = FirebaseDatabase.getInstance().getReference("Ingredients");
+        getIngredientDbRef = FirebaseDatabase.getInstance().getReference("Ingredients");
 
-        //ArrayList<String> list = new ArrayList<>();
-       // ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_ingredient, R.id.ingredientList, list);
+        ArrayList<String> list = new ArrayList<>();
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_ingredient_textview, R.id.ingredientTextView, list);
 
-       // getIngredientDbRef.addChildEventListener(new ChildEventListener() {
+        getIngredientDbRef.addChildEventListener(new ChildEventListener() {
 
 
-           // @Override
-            //public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-               // list.add(snapshot.getValue(String.class));
-               // adapter.notifyDataSetChanged();
-           // }
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+               list.add(snapshot.getValue(String.class));
+               adapter.notifyDataSetChanged();
+           }
 
-            //@Override
-            //public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                //adapter.notifyDataSetChanged();
-            //}
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                adapter.notifyDataSetChanged();
+            }
 
-            //@Override
-            //public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                //list.remove(snapshot.getValue(String.class));
-                //adapter.notifyDataSetChanged();
-           // }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                list.remove(snapshot.getValue(String.class));
+                adapter.notifyDataSetChanged();
+            }
 
-           // @Override
-           // public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+           @Override
+           public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-            //}
+            }
 
-            //@Override
-           // public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-            //}
-       // });
+            }
+       });
 
-       // listView.setAdapter(adapter);
-   // }
+        listView.setAdapter(adapter);
+     }
 }
