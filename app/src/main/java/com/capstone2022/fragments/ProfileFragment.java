@@ -1,6 +1,9 @@
 package com.capstone2022.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -35,6 +38,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseAuth fAuth;
 
 
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -47,7 +51,6 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         TextView signOut = view.findViewById(R.id.bt_sign_out);
         TextView toggleDarkMode = view.findViewById(R.id.bt_toggle_dark_mode);
-
 
 
         buttonSignOut = (Button) signOut;
@@ -63,33 +66,33 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
             }
         });
-        /*buttonToggleDarkMode.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
-        {
-            @Override
-            public void onClick(View v)
-            {
-                int currentNightMode = Configuration.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-                switch (currentNightMode) {
-                    case Configuration.UI_MODE_NIGHT_NO:
-                        // Night mode is not active, we're using the light theme
-                        break;
-                    case Configuration.UI_MODE_NIGHT_YES:
-                        // Night mode is active, we're using dark theme
-                        break;
-                }
-            }
-        });
-        https://stackoverflow.com/questions/60138485/android-appcompatdelegate-setdefaultnightmode-not-recreating-parent-activity-in
-        */
+
+
+
+        //https://stackoverflow.com/questions/60138485/android-appcompatdelegate-setdefaultnightmode-not-recreating-parent-activity-in
+
         buttonToggleDarkMode.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
             public void onClick(View v)
             {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                int nightModeFlag = getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+                switch (nightModeFlag){
+                    case Configuration.UI_MODE_NIGHT_NO:
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        break;
+                    case Configuration.UI_MODE_NIGHT_YES:
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        break;
+                    case Configuration.UI_MODE_NIGHT_UNDEFINED:
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        break;
+                }
+
             }
         });
 
         return view;
     }
+
 }

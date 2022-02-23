@@ -2,6 +2,7 @@ package com.capstone2022;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -10,6 +11,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +29,29 @@ public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     final FragmentManager fragmentManager = getSupportFragmentManager();
+    int NightMode;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
+
+    //This chunk of code has to do with saving/pulling the state of "dark mode."
+    //Ideally, it would save the user's last setting and set it to whichever mode
+    //  the user used last. This is not working correctly. It is tied into the
+    //  "The following is used to store/pull info" on line 70ish
+   /* @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        NightMode = AppCompatDelegate.getDefaultNightMode();
+
+        sharedPreferences = getSharedPreferences("SharedPrefs", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        editor.putInt("NightMode", NightMode);
+        editor.apply();
+
+    }
+*/
     @Override
     public void onBackPressed(){
         //for now, this is empty. So when the back button is pressed, nothing happens.
@@ -44,6 +68,12 @@ public class HomeActivity extends AppCompatActivity {
         //bottomNavigationView.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) this);
         //bottomNavigationView.setSelectedItemId(R.id.ic_home);
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new HomeFragment()).commit();
+
+        //The following is used to store/pull info on the current state of Dark Mode
+         //sharedPreferences = getSharedPreferences("SharedPrefs", MODE_PRIVATE);
+         //NightMode = sharedPreferences.getInt("NightModeInt", 1);
+         //AppCompatDelegate.setDefaultNightMode(NightMode);
+        //end shared preferences logic
 
         bottomNavigationView.setSelectedItemId(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
@@ -77,46 +107,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+
+
     }
 
-    //BookFragment bookFragment = new BookFragment();
-    //HomeFragment homeFragment = new HomeFragment();
-    //ListFragment listFragment = new ListFragment();
-    //ProfileFragment profileFragment = new ProfileFragment();
-    //SearchFragment searchFragment = new SearchFragment();
-
-    //@Override
-  /*  public boolean onNavigationItemSelected(@NonNull MenuItem item)
-    {
-        switch (item.getItemId()){
-            case R.id.ic_books:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, bookFragment).commit();
-                return true;
-
-            case R.id.ic_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
-                return true;
-
-            case R.id.ic_list:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, listFragment).commit();
-                return true;
-
-            case R.id.ic_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
-                return true;
-
-            case R.id.ic_search:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, searchFragment).commit();
-                return true;
-        }
-        return false;
-    }
-*/
-
-    //public void logout(View view)
-   // {
-   //     FirebaseAuth.getInstance().signOut();
-   //     startActivity((new Intent(getApplicationContext(),LoginActivity.class)));
-   //     finish();
-   // }
 }
