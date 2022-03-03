@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextLoginEmail;
     private EditText editTextLoginPassword;
     private Button buttonSignIn;
-    private Button goToIngredients;
+    private Button goToRecipe;
     private FirebaseAuth fAuth;
 
     TextView register;
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextLoginEmail = findViewById(R.id.username);
         editTextLoginPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
-        goToIngredients=findViewById(R.id.goToIngredients);
+        goToRecipe=findViewById(R.id.goToRecipe);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
@@ -88,12 +88,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        goToIngredients.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+        goToRecipe.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(LoginActivity.this, IngredientActivity.class));
+                startActivity(new Intent(LoginActivity.this, RecipeActivity.class));
             }
         });
 
