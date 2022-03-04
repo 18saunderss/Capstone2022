@@ -1,105 +1,105 @@
 package com.capstone2022;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class RecipeActivity extends AppCompatActivity {
-    private Button buttonAddRecipe;
-    private EditText editTextRecipe;
-    DatabaseReference addRecipeDbRef;
-    DatabaseReference getRecipeDbRef;
-    private ListView listView;
 
+    // Initialize variable
+    TextView textview;
+    ArrayList<String> arrayList;
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
-        buttonAddRecipe = findViewById(R.id.addRecipe);
-        editTextRecipe = findViewById(R.id.recipe);
-        addRecipeDbRef = FirebaseDatabase.getInstance().getReference().child("Recipes");
+        // assign variable
+        textview=findViewById(R.id.selectIngredient);
 
+        // initialize array list
+        arrayList=new ArrayList<>();
 
-        buttonAddRecipe.setOnClickListener(new View.OnClickListener() {
+        // set value in array list
+        arrayList.add("DSA Self Paced");
+        arrayList.add("Complete Interview Prep");
+        arrayList.add("Amazon SDE Test Series");
+        arrayList.add("Compiler Design");
+        arrayList.add("Git & Github");
+        arrayList.add("Python foundation");
+        arrayList.add("Operating systems");
+        arrayList.add("Theory of Computation");
+
+        textview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String recipe = editTextRecipe.getText().toString().trim();
-                addRecipeDbRef.push().setValue(recipe).addOnCompleteListener(new OnCompleteListener<Void>() {
+                // Initialize dialog
+                dialog=new Dialog(RecipeActivity.this);
+
+                // set custom dialog
+                dialog.setContentView(R.layout.dialog_searchable_spinner);
+
+                // set custom height and width
+                dialog.getWindow().setLayout(650,800);
+
+                // set transparent background
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                // show dialog
+                dialog.show();
+
+                // Initialize and assign variable
+                EditText editText=dialog.findViewById(R.id.edit_text);
+                ListView listView=dialog.findViewById(R.id.list_view);
+
+                // Initialize array adapter
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(RecipeActivity.this, android.R.layout.simple_list_item_1,arrayList);
+
+                // set adapter
+                listView.setAdapter(adapter);
+                editText.addTextChangedListener(new TextWatcher() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RecipeActivity.this, "Recipe added", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), RecipeActivity.class));
-                        } else {
-                            Toast.makeText(RecipeActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        adapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // when item selected from list
+                        // set selected item on textView
+                        textview.setText(adapter.getItem(position));
+
+                        // Dismiss dialog
+                        dialog.dismiss();
                     }
                 });
             }
         });
-
-        initializeListView();
-    }
-
-    private void initializeListView() {
-        listView = findViewById(R.id.recipeList);
-
-        getRecipeDbRef = FirebaseDatabase.getInstance().getReference("Recipes");
-
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_recipe_textview, R.id.recipeTextView, list);
-
-        getRecipeDbRef.addChildEventListener(new ChildEventListener() {
-
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                list.add(snapshot.getValue(String.class));
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                list.remove(snapshot.getValue(String.class));
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        listView.setAdapter(adapter);
     }
 }
