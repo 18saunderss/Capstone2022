@@ -15,9 +15,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 
 public class RecipeActivity extends AppCompatActivity {
+
+
+    // create instance of Firestore database
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // Initialize variable
     TextView textview;
