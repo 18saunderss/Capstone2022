@@ -1,5 +1,7 @@
 package com.capstone2022;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -15,7 +17,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -23,12 +29,15 @@ public class RecipeActivity extends AppCompatActivity {
 
 
     // create instance of Firestore database
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
     // Initialize variable
     TextView textview;
     ArrayList<String> arrayList;
     Dialog dialog;
+    DatabaseReference getIngredientDbRef;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,17 +47,10 @@ public class RecipeActivity extends AppCompatActivity {
         textview=findViewById(R.id.selectIngredient);
 
         // initialize array list
-        arrayList=new ArrayList<>();
+
 
         // set value in array list
-        arrayList.add("DSA Self Paced");
-        arrayList.add("Complete Interview Prep");
-        arrayList.add("Amazon SDE Test Series");
-        arrayList.add("Compiler Design");
-        arrayList.add("Git & Github");
-        arrayList.add("Python foundation");
-        arrayList.add("Operating systems");
-        arrayList.add("Theory of Computation");
+
 
         textview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,11 +71,45 @@ public class RecipeActivity extends AppCompatActivity {
                 dialog.show();
 
                 // Initialize and assign variable
-                EditText editText=dialog.findViewById(R.id.edit_text);
-                ListView listView=dialog.findViewById(R.id.list_view);
+                EditText editText=dialog.findViewById(R.id.spinnerSearch);
+                ListView listView=dialog.findViewById(R.id.spinnerList);
 
                 // Initialize array adapter
+                ArrayList<String> arrayList=new ArrayList<>();
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(RecipeActivity.this, android.R.layout.simple_list_item_1,arrayList);
+                getIngredientDbRef = FirebaseDatabase.getInstance().getReference("Ingredients");
+                getIngredientDbRef.addChildEventListener(new ChildEventListener() {
+
+
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        arrayList.add(snapshot.getValue(String.class));
+
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                        arrayList.remove(snapshot.getValue(String.class));
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
                 // set adapter
                 listView.setAdapter(adapter);

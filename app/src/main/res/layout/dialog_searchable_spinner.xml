@@ -12,19 +12,19 @@
 
     <!-- Text view to show the text Select course-->
     <TextView
+        android:id="@+id/spinnerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Course"
+        android:text="Select Ingredient"
         android:textSize="20sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <!-- Edit text to allow user to type name
         of item he/she wants to search-->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_text"
+        android:id="@+id/spinnerSearch"
         android:hint="Search..."
         android:padding="12dp"
         android:singleLine="true"
@@ -37,7 +37,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list_view"
+        android:id="@+id/spinnerList"
         />
 
 </LinearLayout>
