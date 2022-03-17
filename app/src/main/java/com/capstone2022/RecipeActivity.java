@@ -33,6 +33,7 @@ public class RecipeActivity extends AppCompatActivity {
 
     // Initialize variable
     TextView textview;
+    TextView ingredientList;
     ArrayList<String> arrayList;
     Dialog dialog;
     DatabaseReference getIngredientDbRef;
@@ -45,7 +46,7 @@ public class RecipeActivity extends AppCompatActivity {
 
         // assign variable
         textview=findViewById(R.id.selectIngredient);
-
+        ingredientList=findViewById(R.id.recipeIngredients);
         // initialize array list
 
 
@@ -136,7 +137,7 @@ public class RecipeActivity extends AppCompatActivity {
                         // when item selected from list
                         // set selected item on textView
                         textview.setText(adapter.getItem(position));
-
+                        ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\n");
                         // Dismiss dialog
                         dialog.dismiss();
                     }
