@@ -12,10 +12,10 @@
 
     <!-- Text view to show the text Select course-->
     <TextView
-        android:id="@+id/spinnerTitle"
+        android:id="@+id/spinnerTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Measurement"
+        android:text="Select Ingredient"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -24,7 +24,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerSearch"
+        android:id="@+id/spinnerSearch2"
         android:hint="Search..."
         android:padding="12dp"
         android:singleLine="true"
@@ -33,11 +33,11 @@
         android:background="@android:drawable/editbox_background"
         />
 
-    <!-- List view to insert list of items-->
     <ListView
+        android:id="@+id/measurementList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/spinnerList"
-        />
+        android:layout_height="match_parent" />
+
+    <!-- List view to insert list of items-->
 
 </LinearLayout>
