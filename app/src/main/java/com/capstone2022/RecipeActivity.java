@@ -1,5 +1,7 @@
 package com.capstone2022;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,26 +20,36 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RecipeActivity extends AppCompatActivity {
-
-
-    // create instance of Firestore database
 
 
     // Initialize variable
     TextView textview;
     TextView ingredientList;
+    TextView addRecipes;
     ArrayList<String> arrayList;
     Dialog dialog;
-    DatabaseReference getIngredientDbRef;
+    DatabaseReference getIngredientDbRef;                                                           //Realtime Database connection for ingredients only
+    EditText recipeTitle;                                                                           //The following are for the EditText textboxes
+    EditText recipeDescription;
+    EditText recipeIngredients;
+    EditText recipeInstructions;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();                                         //Firestore Database connection for the recipes
+    DocumentReference recipes = db.document("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData");
 
 
     @Override
@@ -45,13 +58,13 @@ public class RecipeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe);
 
         // assign variable
+        addRecipes=findViewById(R.id.addRecipe);
         textview=findViewById(R.id.selectIngredient);
         ingredientList=findViewById(R.id.recipeIngredients);
         // initialize array list
 
 
         // set value in array list
-
 
         textview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +155,46 @@ public class RecipeActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 });
+            }
+        });
+
+        addRecipes.setOnClickListener(new View.OnClickListener() {                                  //METHOD: This method will take data from the EditText textboxes and push the recipe to the Firestore Database
+            @Override
+            public void onClick(View view) {
+                recipeTitle=findViewById(R.id.recipeTitle);                                         //Find the view (the text boxes)
+                recipeDescription=findViewById(R.id.recipeDescription);
+                recipeIngredients=findViewById(R.id.recipeIngredients);
+                recipeInstructions=findViewById(R.id.recipeInstruction);
+
+                String title;                                                                       //Create strings to hold data from the text boxes
+                String description;
+                String ingredient;
+                String instructions;
+
+                title=recipeTitle.getText().toString();                                             //Assign data from the textboxes to the strings
+                description=recipeDescription.getText().toString();
+                ingredient=recipeIngredients.getText().toString();
+                instructions=recipeInstructions.getText().toString();
+
+                HashMap<String, String> data1 = new HashMap<String, String>();                                   //Put all of the strings into a hashmap, push the hashmap to the database's new collection at the path specified below
+                data1.put("Title", title);                                                                  //This chunk of code can be used as a template to push data to the Firestore database
+                data1.put("Description",description);
+                data1.put("Ingredient",ingredient);
+                data1.put("Instructions",instructions);
+                db.collection("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData/TestRecipeCollection")
+                        .add(data1).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                    }
+                })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w(TAG, "Error adding document", e);
+                            }
+                        });
+
             }
         });
     }
