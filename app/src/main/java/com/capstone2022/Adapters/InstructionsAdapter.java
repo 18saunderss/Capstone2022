@@ -1,7 +1,6 @@
 package com.capstone2022.Adapters;
 
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.capstone2022.Models.InstructionsResponse;
+import com.capstone2022.R;
 
 import java.util.List;
 
