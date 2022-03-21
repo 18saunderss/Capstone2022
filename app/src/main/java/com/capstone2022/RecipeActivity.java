@@ -39,9 +39,15 @@ public class RecipeActivity extends AppCompatActivity {
     // Initialize variable
     TextView textview;
     TextView ingredientList;
+
+
+
+
+
     TextView addRecipes;
     ArrayList<String> arrayList;
     Dialog dialog;
+    Dialog dialog2;
     DatabaseReference getIngredientDbRef;                                                           //Realtime Database connection for ingredients only
     EditText recipeTitle;                                                                           //The following are for the EditText textboxes
     EditText recipeDescription;
@@ -50,6 +56,7 @@ public class RecipeActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();                                         //Firestore Database connection for the recipes
     DocumentReference recipes = db.document("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData");
+
 
 
     @Override
@@ -88,18 +95,21 @@ public class RecipeActivity extends AppCompatActivity {
                 EditText editText=dialog.findViewById(R.id.spinnerSearch);
                 ListView listView=dialog.findViewById(R.id.spinnerList);
 
+
+
                 // Initialize array adapter
                 ArrayList<String> arrayList=new ArrayList<>();
                 ArrayAdapter<String> adapter=new ArrayAdapter<>(RecipeActivity.this, android.R.layout.simple_list_item_1,arrayList);
                 getIngredientDbRef = FirebaseDatabase.getInstance().getReference("Ingredients");
-                getIngredientDbRef.addChildEventListener(new ChildEventListener() {
 
+
+
+                getIngredientDbRef.addChildEventListener(new ChildEventListener() {
 
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                         arrayList.add(snapshot.getValue(String.class));
-
                         adapter.notifyDataSetChanged();
                     }
 
@@ -144,17 +154,100 @@ public class RecipeActivity extends AppCompatActivity {
                     }
                 });
 
+
+
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         // when item selected from list
                         // set selected item on textView
                         textview.setText(adapter.getItem(position));
+
+                        ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\t\t");
+
                         ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\n");
+
                         // Dismiss dialog
                         dialog.dismiss();
+
+                        dialog2=new Dialog(RecipeActivity.this);
+
+                        // set custom dialog
+                        dialog2.setContentView(R.layout.dialog_searchable_spinner2);
+
+                        // set custom height and width
+                        dialog2.getWindow().setLayout(650,800);
+
+                        // set transparent background
+                        dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                        // show dialog
+                        dialog2.show();
+                        EditText editText2=dialog2.findViewById(R.id.spinnerSearch2);
+                        ListView measurementList=dialog2.findViewById(R.id.measurementList);
+
+                        ArrayList arrayList2=new ArrayList<>();
+
+
+
+                        arrayList2.add("1");
+                        arrayList2.add("2");
+                        arrayList2.add("3");
+                        arrayList2.add("4");
+                        arrayList2.add("5");
+                        arrayList2.add("6");
+                        arrayList2.add("7");
+                        arrayList2.add("8");
+                        arrayList2.add("9");
+                        arrayList2.add("10");
+                        arrayList2.add("1 Cup");
+                        arrayList2.add("1/2 Cup");
+                        arrayList2.add("1/3 Cup");
+                        arrayList2.add("1/4 Cup");
+                        arrayList2.add("Teaspoon");
+                        arrayList2.add("TableSpoon");
+                        arrayList2.add("1 Quart");
+                        arrayList2.add("Pound");
+                        arrayList2.add("Pint");
+
+
+                        ArrayAdapter<String> adapter2=new ArrayAdapter<>(RecipeActivity.this, android.R.layout.simple_list_item_1,arrayList2);
+
+                        measurementList.setAdapter(adapter2);
+                        editText2.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                adapter2.getFilter().filter(s);
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+
+                            }
+                        });
+
+                        measurementList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                // when item selected from list
+                                // set selected item on textView
+                                //textview.setText(adapter.getItem(position));
+                                ingredientList.setText(ingredientList.getText()+"-"+adapter2.getItem(position)+"\n");
+                                // Dismiss dialog
+                                dialog2.dismiss();
+
+
+                            }
+                        });
                     }
                 });
+
+
             }
         });
 
