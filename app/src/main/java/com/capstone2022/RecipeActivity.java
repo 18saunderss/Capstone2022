@@ -142,7 +142,7 @@ public class RecipeActivity extends AppCompatActivity {
                         // when item selected from list
                         // set selected item on textView
                         textview.setText(adapter.getItem(position));
-                        ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"        ");
+                        ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\t\t");
                         // Dismiss dialog
                         dialog.dismiss();
 
@@ -164,14 +164,28 @@ public class RecipeActivity extends AppCompatActivity {
 
                         ArrayList arrayList2=new ArrayList<>();
 
-                        arrayList2.add("Cup");
+
+
+                        arrayList2.add("1");
+                        arrayList2.add("2");
+                        arrayList2.add("3");
+                        arrayList2.add("4");
+                        arrayList2.add("5");
+                        arrayList2.add("6");
+                        arrayList2.add("7");
+                        arrayList2.add("8");
+                        arrayList2.add("9");
+                        arrayList2.add("10");
+                        arrayList2.add("1 Cup");
                         arrayList2.add("1/2 Cup");
+                        arrayList2.add("1/3 Cup");
+                        arrayList2.add("1/4 Cup");
                         arrayList2.add("Teaspoon");
                         arrayList2.add("TableSpoon");
-                        arrayList2.add("Quart");
+                        arrayList2.add("1 Quart");
                         arrayList2.add("Pound");
                         arrayList2.add("Pint");
-                        arrayList2.add("Quart");
+
 
                         ArrayAdapter<String> adapter2=new ArrayAdapter<>(RecipeActivity.this, android.R.layout.simple_list_item_1,arrayList2);
 
@@ -199,7 +213,7 @@ public class RecipeActivity extends AppCompatActivity {
                                 // when item selected from list
                                 // set selected item on textView
                                 //textview.setText(adapter.getItem(position));
-                                ingredientList.setText(ingredientList.getText()+adapter2.getItem(position)+"\n");
+                                ingredientList.setText(ingredientList.getText()+"-"+adapter2.getItem(position)+"\n");
                                 // Dismiss dialog
                                 dialog2.dismiss();
 
