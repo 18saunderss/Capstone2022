@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +32,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity {
 
@@ -165,7 +168,7 @@ public class RecipeActivity extends AppCompatActivity {
 
                         ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\t\t");
 
-                        ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\n");
+                        //ingredientList.setText(ingredientList.getText()+adapter.getItem(position)+"\n");                      //I commented this out because it caused ingredients to show up twice when you entered the quantity
 
                         // Dismiss dialog
                         dialog.dismiss();
@@ -264,15 +267,24 @@ public class RecipeActivity extends AppCompatActivity {
                 String ingredient;
                 String instructions;
 
+
                 title=recipeTitle.getText().toString();                                             //Assign data from the textboxes to the strings
                 description=recipeDescription.getText().toString();
                 ingredient=recipeIngredients.getText().toString();
                 instructions=recipeInstructions.getText().toString();
 
+                String[] ingredientsSplit = ingredient.split(System.lineSeparator());
+                ArrayList<String> ingredientsList = new ArrayList<String>(Arrays.asList(ingredientsSplit));
                 HashMap<String, String> data1 = new HashMap<String, String>();                                   //Put all of the strings into a hashmap, push the hashmap to the database's new collection at the path specified below
                 data1.put("Title", title);                                                                  //This chunk of code can be used as a template to push data to the Firestore database
                 data1.put("Description",description);
-                data1.put("Ingredient",ingredient);
+                int x = 0;                                                                          //Temporary solution to add multiple ingredients
+                for (String s:ingredientsList) {
+                    data1.put("Ingredient" + x, s);
+                    x = (x + 1);
+                }
+                //data1.put("Ingredient",ingredient);
+
                 data1.put("Instructions",instructions);
                 db.collection("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData/TestRecipeCollection")
                         .add(data1).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
