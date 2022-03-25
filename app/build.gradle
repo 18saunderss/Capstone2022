@@ -45,6 +45,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
     implementation 'com.google.firebase:firebase-firestore:24.0.1'
     implementation 'androidx.navigation:navigation-ui:2.4.0'
+
+    //implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

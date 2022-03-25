@@ -11,7 +11,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
-    <string name="api_key">9335d0012b57477986ecbec6f7cde101</string>
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -123,5 +122,22 @@
     <string name="bt_toggle_dark_mode">Toggle Dark Mode</string>
     <string name="fab_ingredients">Ingredients</string>
     <string name="bt_ingredients">Ingredients</string>
+    <string name="api_key">9335d0012b57477986ecbec6f7cde101</string>
+    <string-array name="tags">
+        <item>Main course</item>
+        <item>Side dish</item>
+        <item>Dessert</item>
+        <item>Appetizer</item>
+        <item>Salad</item>
+        <item>Bread</item>
+        <item>Breakfast</item>
+        <item>Soup</item>
+        <item>Beverage</item>
+        <item>Sauce</item>
+        <item>Marinade</item>
+        <item>Fingerfood</item>
+        <item>Snack</item>
+        <item>Drink</item>
+    </string-array>
 
 </resources>

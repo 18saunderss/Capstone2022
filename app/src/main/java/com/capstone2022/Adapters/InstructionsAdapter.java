@@ -1,6 +1,5 @@
 package com.capstone2022.Adapters;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
