@@ -43,7 +43,6 @@ public class RecipeActivity extends AppCompatActivity {
     TextView textview;
     TextView ingredientList;
     TextView addRecipes;
-    ArrayList<String> arrayList;
     Dialog dialog;
     Dialog dialog2;
     DatabaseReference getIngredientDbRef;                                                           //Realtime Database connection for ingredients only

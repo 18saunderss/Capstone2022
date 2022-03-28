@@ -56,6 +56,10 @@ public class RecipeListActivity extends AppCompatActivity {
         EventChangeListener();
     }
 
+
+
+
+
     private void EventChangeListener() {
 
         db.collection("RecipeApp").document("RecipeApp").collection("Users").document("UserData")
@@ -66,13 +70,10 @@ public class RecipeListActivity extends AppCompatActivity {
 
             if (error != null){
 
-
-
                 Log.e("Firestore error", error.getMessage());
                 return;
 
             }
-
             for (DocumentChange dc : value.getDocumentChanges()){
 
                 recipeArrayList.add(dc.getDocument().toObject(Recipe.class));
