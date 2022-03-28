@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextLoginPassword;
     private Button buttonSignIn;
     private Button goToRecipe;
+    private Button recipeList;
     private FirebaseAuth fAuth;
 
     //test database
@@ -59,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextLoginPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
         goToRecipe=findViewById(R.id.goToRecipe);
+        recipeList=findViewById(R.id.recipeList);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
@@ -143,6 +145,15 @@ public class LoginActivity extends AppCompatActivity {
                                        }
                                       });
 
+        recipeList.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(LoginActivity.this, RecipeListActivity.class));
+            }
+        });
+
 
 
 
@@ -155,6 +166,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 
 
 

@@ -42,11 +42,6 @@ public class RecipeActivity extends AppCompatActivity {
     // Initialize variable
     TextView textview;
     TextView ingredientList;
-
-
-
-
-
     TextView addRecipes;
     ArrayList<String> arrayList;
     Dialog dialog;
@@ -59,8 +54,6 @@ public class RecipeActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();                                         //Firestore Database connection for the recipes
     DocumentReference recipes = db.document("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData");
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,8 +242,6 @@ public class RecipeActivity extends AppCompatActivity {
                         });
                     }
                 });
-
-
             }
         });
 
@@ -299,7 +290,6 @@ public class RecipeActivity extends AppCompatActivity {
                                 Log.w(TAG, "Error adding document", e);
                             }
                         });
-
             }
         });
     }
