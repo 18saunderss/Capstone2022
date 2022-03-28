@@ -56,6 +56,7 @@ public class RecipeListActivity extends AppCompatActivity {
         EventChangeListener();
     }
 
+
     private void EventChangeListener() {
 
         db.collection("RecipeApp").document("RecipeApp").collection("Users").document("UserData")
@@ -65,7 +66,6 @@ public class RecipeListActivity extends AppCompatActivity {
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
             if (error != null){
-
 
 
                 Log.e("Firestore error", error.getMessage());
