@@ -6,6 +6,16 @@ public class Recipe {
     String Description;
     String Ingredient;
     String Instructions;
+  
+   public Recipe(){}
+
+    public Recipe(String recipeName) {
+
+        this.Instructions = Instructions;
+        this.Ingredient = Ingredient;
+        this.Description = Description;
+        this.Title = Title;
+    }
 
     public String getInstructions() {
         return Instructions;
@@ -31,15 +41,6 @@ public class Recipe {
 
     public void setDescription(String description) {
         Description = description;
-    }
-
-    public Recipe(){}
-
-    public Recipe(String recipeName) {
-        this.Instructions = Instructions;
-        this.Ingredient = Ingredient;
-        this.Description = Description;
-        this.Title = Title;
     }
 
     public String getTitle() {
