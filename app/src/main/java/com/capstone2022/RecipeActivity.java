@@ -19,7 +19,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +33,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity {
 
@@ -62,7 +60,7 @@ public class RecipeActivity extends AppCompatActivity {
         // assign variable
         addRecipes=findViewById(R.id.addRecipe);
         textview=findViewById(R.id.selectIngredient);
-        ingredientList=findViewById(R.id.recipeIngredients);
+        ingredientList=findViewById(R.id.textRecipeIngredients);
         // initialize array list
 
 
@@ -247,9 +245,9 @@ public class RecipeActivity extends AppCompatActivity {
         addRecipes.setOnClickListener(new View.OnClickListener() {                                  //METHOD: This method will take data from the EditText textboxes and push the recipe to the Firestore Database
             @Override
             public void onClick(View view) {
-                recipeTitle=findViewById(R.id.recipeTitle);                                         //Find the view (the text boxes)
+                recipeTitle=findViewById(R.id.textRecipeTitle);                                         //Find the view (the text boxes)
                 recipeDescription=findViewById(R.id.recipeDescription);
-                recipeIngredients=findViewById(R.id.recipeIngredients);
+                recipeIngredients=findViewById(R.id.textRecipeIngredients);
                 recipeInstructions=findViewById(R.id.recipeInstruction);
 
                 String title;                                                                       //Create strings to hold data from the text boxes

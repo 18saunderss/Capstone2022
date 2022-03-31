@@ -25,11 +25,11 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/recipeTitle"
+      app:layout_constraintTop_toBottomOf="@+id/textRecipeTitle"
       app:layout_constraintVertical_bias="0.34" />
 
   <EditText
-      android:id="@+id/recipeIngredients"
+      android:id="@+id/textRecipeIngredients"
       android:layout_width="374dp"
       android:layout_height="131dp"
       android:background="@android:drawable/editbox_background"
@@ -56,7 +56,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/recipeIngredients"
+      app:layout_constraintTop_toBottomOf="@+id/textRecipeIngredients"
       app:layout_constraintVertical_bias="0.752" />
 
   <TextView
@@ -68,14 +68,14 @@
       android:gravity="center_vertical"
       android:hint="Select ingredients"
       android:padding="12dp"
-      app:layout_constraintBottom_toTopOf="@+id/recipeIngredients"
+      app:layout_constraintBottom_toTopOf="@+id/textRecipeIngredients"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/recipeDescription" />
 
   <EditText
-      android:id="@+id/recipeTitle"
+      android:id="@+id/textRecipeTitle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@android:drawable/editbox_background"
