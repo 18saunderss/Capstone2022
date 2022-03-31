@@ -150,7 +150,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(LoginActivity.this, RecipeListActivity.class));
+                //I CHANGED THE BUTTON HERE TO GO TO THE TEST GETRECIPEACTIVITY CLASS, IT SHOULD BE THE RECIPE LIST ACTIVITY
+                startActivity(new Intent(LoginActivity.this, GetRecipeActivity.class));
             }
         });
 
