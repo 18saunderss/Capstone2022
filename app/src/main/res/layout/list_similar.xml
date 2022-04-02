@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/textView_similar_title"
             android:text="Name"
-            android:textColor="@color/orange"
+            android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="16sp"
             android:singleLine="true"

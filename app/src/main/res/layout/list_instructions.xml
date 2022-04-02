@@ -13,7 +13,7 @@
         <TextView
             android:id="@+id/textView_instruction_name"
             android:text="Instruction"
-            android:textColor="@color/orange"
+            android:textColor="@color/black"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
