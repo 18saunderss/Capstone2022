@@ -86,6 +86,9 @@ public class GetRecipeActivity extends AppCompatActivity {
                         recipeInstructions = findViewById(R.id.textRecipeInstructions);
                         recipeDescription = findViewById(R.id.textRecipeDescription);
 
+                        //TODO: Insert query statement to get the element that matches the title of recipe
+                        //https://firebase.google.com/docs/firestore/query-data/queries
+
                         Recipe test = new Recipe();
                         test = (Recipe)recipeArrayList.get(1);
 
@@ -101,5 +104,9 @@ public class GetRecipeActivity extends AppCompatActivity {
 
 
     }
+
+   // public static Recipe DisplayRecipeFromCardClick(String recipeName) {
+
+    //}
 
 }
