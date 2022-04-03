@@ -53,8 +53,12 @@
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/drawable/ic_serving.xml" value="0.1" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/drawable/ic_time.xml" value="0.1" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_ingredient_textview.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_login2.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_recipe.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_recipe_detail.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_ingredients.xml" value="0.1" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_instructions_step_items.xml" value="0.13055555555555556" />
         <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_random.xml" value="0.1" />
