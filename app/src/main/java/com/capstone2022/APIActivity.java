@@ -1,7 +1,9 @@
 package com.capstone2022;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -9,8 +11,10 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -19,6 +23,13 @@ import com.capstone2022.Adapters.RandomMealAdapter;
 import com.capstone2022.Listeners.CustomOnClickListener;
 import com.capstone2022.Listeners.RandomAPIResponseListener;
 import com.capstone2022.Models.RandomRecipe;
+import com.capstone2022.fragments.BookFragment;
+import com.capstone2022.fragments.HomeFragment;
+import com.capstone2022.fragments.ListFragment;
+import com.capstone2022.fragments.ProfileFragment;
+import com.capstone2022.fragments.SearchFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 //import com.github.ybq.android.spinkit.sprite.Sprite;
 //import com.github.ybq.android.spinkit.style.Wave;
@@ -34,14 +45,17 @@ public class APIActivity extends AppCompatActivity {
     List<String> tags = new ArrayList<>();
     Spinner spinner;
     SearchView searchView_home;
-    ProgressBar progressBar;
+   // ProgressBar progressBar;
+//menu
+   BottomNavigationView bottomNavigationView;
+    final FragmentManager fragmentManager = getSupportFragmentManager();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
-
+        //api
         recyclerView = findViewById(R.id.recycler_random);
         spinner = findViewById(R.id.spinner_tags);
         searchView_home = findViewById(R.id.searchView_home);
@@ -81,7 +95,7 @@ public class APIActivity extends AppCompatActivity {
             adapter = new RandomMealAdapter(APIActivity.this, responses, customOnClickListener);
             recyclerView.setAdapter(adapter);
             recyclerView.setVisibility(View.VISIBLE);
-            progressBar.setVisibility(View.GONE);
+           // progressBar.setVisibility(View.GONE);
         }
 
         @Override
