@@ -46,7 +46,7 @@ public class APIActivity extends AppCompatActivity {
     Spinner spinner;
     SearchView searchView_home;
    // ProgressBar progressBar;
-//menu
+   //menu
    BottomNavigationView bottomNavigationView;
     final FragmentManager fragmentManager = getSupportFragmentManager();
 

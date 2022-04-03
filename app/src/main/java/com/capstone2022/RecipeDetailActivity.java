@@ -50,7 +50,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
     //    ProgressDialog dialog;
     ProgressBar progressBar;
     List<ExtendedIngredient> ingredientList;
-    int id = 0;
+    //int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         //Sprite doubleBounce = new Wave();
         //progressBar.setIndeterminateDrawable(doubleBounce);
 
-        id = Integer.valueOf(getIntent().getStringExtra("id"));
+        int id = Integer.valueOf(getIntent().getStringExtra("id"));
         manager = new com.capstone2022.RequestManager(this);
         manager.GetRecipeDetails(listener, id);
 //        dialog.show();
@@ -127,7 +127,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         textView_meal_price.setText(response.pricePerServing + " $ per serving");
         textView_meal_summary.setText(response.summary);
 //        dialog.dismiss();
-        progressBar.setVisibility(View.GONE);
+        //progressBar.setVisibility(View.GONE);
         scrollView.setVisibility(View.VISIBLE);
 
         recycler_meal_ingredients.setHasFixedSize(true);
