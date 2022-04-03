@@ -151,7 +151,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 //I CHANGED THE BUTTON HERE TO GO TO THE TEST GETRECIPEACTIVITY CLASS, IT SHOULD BE THE RECIPE LIST ACTIVITY
-                startActivity(new Intent(LoginActivity.this, GetRecipeActivity.class));
+                //startActivity(new Intent(LoginActivity.this, GetRecipeActivity.class));
+                startActivity(new Intent(LoginActivity.this, RecipeListActivity.class));
+
             }
         });
 
