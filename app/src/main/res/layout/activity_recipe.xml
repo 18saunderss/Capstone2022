@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relative layout as parent layout -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/instructions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".RecipeActivity">
+
+  <!-- text view to show the selected item-->
+
+  <EditText
+      android:id="@+id/recipeDescription"
+      android:layout_width="374dp"
+      android:layout_height="131dp"
+      android:background="@android:drawable/editbox_background"
+      android:gravity="center_vertical"
+      android:hint="Description"
+      android:inputType="textMultiLine"
+      android:padding="12dp"
+      app:layout_constraintBottom_toTopOf="@+id/selectIngredient"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/recipeTitle"
+      app:layout_constraintVertical_bias="0.34" />
+
+  <EditText
+      android:id="@+id/recipeIngredients"
+      android:layout_width="374dp"
+      android:layout_height="131dp"
+      android:background="@android:drawable/editbox_background"
+      android:gravity="center_vertical"
+      android:hint="Ingredients"
+      android:inputType="textMultiLine"
+      android:padding="12dp"
+      app:layout_constraintBottom_toTopOf="@+id/recipeInstruction"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/selectIngredient" />
+
+  <EditText
+      android:id="@+id/recipeInstruction"
+      android:layout_width="383dp"
+      android:layout_height="146dp"
+      android:background="@android:drawable/editbox_background"
+      android:gravity="center_vertical"
+      android:hint="Instructions"
+      android:inputType="textMultiLine"
+      android:padding="12dp"
+      app:layout_constraintBottom_toTopOf="@+id/addRecipe"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/recipeIngredients"
+      app:layout_constraintVertical_bias="0.752" />
+
+  <TextView
+      android:id="@+id/selectIngredient"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:drawable/editbox_background"
+      android:drawableEnd="@drawable/ic_arrow"
+      android:gravity="center_vertical"
+      android:hint="Select ingredients"
+      android:padding="12dp"
+      app:layout_constraintBottom_toTopOf="@+id/recipeIngredients"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/recipeDescription" />
+
+  <EditText
+      android:id="@+id/recipeTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:drawable/editbox_background"
+      android:gravity="center_vertical"
+      android:hint="Recipe title"
+      android:padding="12dp"
+      app:layout_constraintBottom_toTopOf="@+id/recipeDescription"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/addRecipe"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Add"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/recipeInstruction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
