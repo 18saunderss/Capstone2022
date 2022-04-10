@@ -56,7 +56,7 @@ public class APIActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_home);
+        setContentView(R.layout.random_api_list);
         //api
         recyclerView = findViewById(R.id.recycler_random);
         spinner = findViewById(R.id.spinner_tags);

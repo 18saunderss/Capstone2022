@@ -74,8 +74,7 @@ public class ProfileFragment extends Fragment {
         buttonToggleDarkMode.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 int nightModeFlag = getContext().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
                 switch (nightModeFlag){
                     case Configuration.UI_MODE_NIGHT_NO:
