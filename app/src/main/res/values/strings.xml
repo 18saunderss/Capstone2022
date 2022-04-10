@@ -122,5 +122,6 @@
     <string name="bt_toggle_dark_mode">Toggle Dark Mode</string>
     <string name="fab_ingredients">Ingredients</string>
     <string name="bt_ingredients">Ingredients</string>
+    <string name="select_recipe">Select Recipe</string>
 
 </resources>
