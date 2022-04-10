@@ -9,11 +9,7 @@
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_ingredient_textview.xml" value="0.12107396149949341" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_login2.xml" value="0.22" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_recipe.xml" value="0.33" />
-
-        <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_recipe_list.xml" value="0.33" />
-
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_recipe_list.xml" value="0.15602836879432624" />
-
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_recipe_textview.xml" value="0.23143115942028986" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_register2.xml" value="0.1" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_reset_password.xml" value="0.22" />
@@ -21,9 +17,7 @@
         <entry key="..\:/Capstone2022/app/src/main/res/layout/activity_resetpassword.xml" value="0.2557291666666667" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.23958333333333334" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/dialog_searchable_spinner2.xml" value="0.21739130434782608" />
-
         <entry key="..\:/Capstone2022/app/src/main/res/layout/dialog_searchable_spinner3.xml" value="0.24592391304347827" />
-
         <entry key="..\:/Capstone2022/app/src/main/res/layout/fragment_book.xml" value="0.17447916666666666" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/recipe.xml" value="0.1" />
         <entry key="..\:/Capstone2022/app/src/main/res/layout/recipecard.xml" value="0.38571428571428573" />
@@ -53,7 +47,24 @@
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/fragment_search.xml" value="0.5492443981240229" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/landing_page.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/tab_from_home.xml" value="0.11041666666666666" />
-
+        <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/drawable/ic_cost.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/drawable/ic_heart.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/drawable/ic_serving.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/drawable/ic_time.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_ingredient_textview.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_login2.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_recipe.xml" value="0.2441123188405797" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/activity_recipe_detail.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_ingredients.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_instructions_step_items.xml" value="0.13055555555555556" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_random.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/list_similar.xml" value="0.1" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/layout/recipecard.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/jacis/StudioProjects/Capstone2022/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22037037037037038" />
       </map>
     </option>
   </component>
