@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+
 import android.content.Context;
 import android.content.Intent;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -55,7 +57,9 @@ public class RecipeListActivity extends AppCompatActivity {
     CollectionReference getRecipeDBref =  db.collection("RecipeApp").document("RecipeApp").collection("Users").document("UserData")
             .collection("Recipes").document("RecipeData").collection("TestRecipeCollection");
     Dialog dialog3;
+
     Context context = this.context;
+
 
 
     @Override
@@ -127,6 +131,7 @@ public class RecipeListActivity extends AppCompatActivity {
 
                         searchRecipe.setText(adapter.getItem(position));
 
+
                         //Pass recipeName to GetRecipeActivity and display recipe
                         //String recipeName = itemView.findViewById(R.id.recipeName);
                         //GetRecipeActivity.DisplayRecipeFromCardClick((String) recipeNameText);
@@ -140,6 +145,12 @@ public class RecipeListActivity extends AppCompatActivity {
 
 
                         //dialog3.dismiss();
+
+
+
+
+                        dialog3.dismiss();
+
 
                     }
 
