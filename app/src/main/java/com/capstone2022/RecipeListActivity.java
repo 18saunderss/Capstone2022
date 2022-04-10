@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+
+import android.content.Context;
+import android.content.Intent;
+
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -54,6 +58,9 @@ public class RecipeListActivity extends AppCompatActivity {
             .collection("Recipes").document("RecipeData").collection("TestRecipeCollection");
     Dialog dialog3;
 
+    Context context = this.context;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +80,7 @@ public class RecipeListActivity extends AppCompatActivity {
         recipeList = findViewById(R.id.recipeList);
         ArrayAdapter<String> adapter=new ArrayAdapter<>(RecipeListActivity.this, android.R.layout.simple_list_item_1,searchRecipeArrayList);
         recipeList.setAdapter(myAdapter);
+
 
         EventChangeListener();
 
@@ -124,9 +132,25 @@ public class RecipeListActivity extends AppCompatActivity {
                         searchRecipe.setText(adapter.getItem(position));
 
 
+                        //Pass recipeName to GetRecipeActivity and display recipe
+                        //String recipeName = itemView.findViewById(R.id.recipeName);
+                        //GetRecipeActivity.DisplayRecipeFromCardClick((String) recipeNameText);
+                        String returnRecipeTitle = searchRecipe.getText().toString();
+                        Intent myIntent = new Intent(getApplicationContext(), GetRecipeActivity.class);
+                        myIntent.putExtra("title",returnRecipeTitle);
+                        GetRecipeActivity.setRecipeTitle(returnRecipeTitle);
+                        //context.startActivity(new Intent(getActivity(), GetRecipeActivity.class));
+                        //context.startActivity(GetRecipeActivity.class);
+                        v.getContext().startActivity(myIntent);
+
+
+                        //dialog3.dismiss();
+
+
 
 
                         dialog3.dismiss();
+
 
                     }
 
