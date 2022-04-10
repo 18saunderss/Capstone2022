@@ -1,6 +1,7 @@
 package com.capstone2022;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -47,10 +48,10 @@ public class RecipeDetailActivity extends AppCompatActivity {
     IngredientsAdapter adapter;
     SimilarListAdapter similarListAdapter;
     InstructionsAdapter instructionsAdapter;
-    //    ProgressDialog dialog;
+    ProgressDialog dialog;
     ProgressBar progressBar;
     List<ExtendedIngredient> ingredientList;
-    //int id = 0;
+    // int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,8 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         findViews();
 
-//        dialog = new ProgressDialog(this);
-//        dialog.setTitle("Please wait...");
+      dialog = new ProgressDialog(this);
+      dialog.setTitle("Please wait...");
         //progressBar = (ProgressBar)findViewById(R.id.loader);
         //Sprite doubleBounce = new Wave();
         //progressBar.setIndeterminateDrawable(doubleBounce);
@@ -68,7 +69,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         int id = Integer.valueOf(getIntent().getStringExtra("id"));
         manager = new com.capstone2022.RequestManager(this);
         manager.GetRecipeDetails(listener, id);
-//        dialog.show();
+        dialog.show();
         manager.GetSimilarRecipe(similarRecipeListener, id);
         manager.GetInstructions(instructionsListener, id);
 
@@ -126,7 +127,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         textView_meal_ready.setText(response.readyInMinutes + " Minutes");
         textView_meal_price.setText(response.pricePerServing + " $ per serving");
         textView_meal_summary.setText(response.summary);
-//        dialog.dismiss();
+        dialog.dismiss();
         //progressBar.setVisibility(View.GONE);
         scrollView.setVisibility(View.VISIBLE);
 

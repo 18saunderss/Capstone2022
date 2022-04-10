@@ -3,6 +3,7 @@ package com.capstone2022;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,6 +35,7 @@ import com.google.android.material.navigation.NavigationBarView;
 //import com.github.ybq.android.spinkit.sprite.Sprite;
 //import com.github.ybq.android.spinkit.style.Wave;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,9 +127,11 @@ public class APIActivity extends AppCompatActivity {
     private final CustomOnClickListener customOnClickListener = new CustomOnClickListener() {
         @Override
         public void onClick(String text) {
-            startActivity(new Intent(APIActivity.this, RecipeDetailActivity.class)
-                    .putExtra("id", text));
-        }
+
+                startActivity(new Intent(APIActivity.this, RecipeDetailActivity.class)
+                        .putExtra("id", text));
+            }
+
     };
 
 

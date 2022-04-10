@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.capstone2022.APIActivity;
+import com.capstone2022.R;
 
 
 public class HomeFragment extends Fragment {
@@ -24,8 +25,8 @@ public class HomeFragment extends Fragment {
         Intent intent = new Intent(getContext(), APIActivity.class);
         startActivity(intent);
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
 
-        return null;
+        //return null;
     }
 }
