@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/appster_chef_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/appster_chef_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Capstone">
         <activity
@@ -19,6 +19,8 @@
             android:exported="false" />
         <activity
             android:name=".IngredientActivity"
+            android:exported="false" />
+        <activity android:name=".GetRecipeActivity"
             android:exported="false" />
         <activity
             android:name=".ResetPasswordActivity"
