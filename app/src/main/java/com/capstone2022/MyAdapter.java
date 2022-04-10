@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -43,16 +45,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
 
         Recipe recipe = recipeArrayList.get(position);
-        CharSequence recipeNameText = holder.recipeName.getText();
-        holder.recipeName.setText(recipe.Title);
 
+        holder.recipeName.setText(recipe.Title);
         holder.recipeName.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Pass recipeName to GetRecipeActivity and display recipe
                 //String recipeName = itemView.findViewById(R.id.recipeName);
                 //GetRecipeActivity.DisplayRecipeFromCardClick((String) recipeNameText);
+                String returnRecipeTitle = (String)holder.recipeName.getText();
                 Intent myIntent = new Intent(context, GetRecipeActivity.class);
+                myIntent.putExtra("title",returnRecipeTitle);
+                GetRecipeActivity.setRecipeTitle(returnRecipeTitle);
                 //context.startActivity(new Intent(getActivity(), GetRecipeActivity.class));
                 //context.startActivity(GetRecipeActivity.class);
                 v.getContext().startActivity(myIntent);

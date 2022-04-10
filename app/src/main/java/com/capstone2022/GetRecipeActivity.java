@@ -1,13 +1,17 @@
 package com.capstone2022;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 
 public class GetRecipeActivity extends AppCompatActivity {
 
+    private static String recipeToSearch;
     private EditText editTextRecipe;
     private TextView recipeTitle;
     private TextView recipeIngredients;
@@ -59,6 +64,7 @@ public class GetRecipeActivity extends AppCompatActivity {
         db.collection("RecipeApp").document("RecipeApp").collection("Users").document("UserData")
                 .collection("Recipes").document("RecipeData").collection("TestRecipeCollection").orderBy("Title", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
@@ -89,13 +95,45 @@ public class GetRecipeActivity extends AppCompatActivity {
                         //TODO: Insert query statement to get the element that matches the title of recipe
                         //https://firebase.google.com/docs/firestore/query-data/queries
 
-                        Recipe test = new Recipe();
-                        test = (Recipe)recipeArrayList.get(1);
 
-                        recipeTitle.setText(test.getTitle());
-                        recipeIngredients.setText(test.getIngredient());
-                        recipeInstructions.setText(test.getInstructions());
-                        recipeDescription.setText(test.getDescription());
+                        //use RecipeTitleToSearch string and set method with
+                        // query function to get the recipe from database
+                        // that matches the title
+                        Bundle extras = getIntent().getExtras();                        //Get the recipe title that was selected from the onclick method from MyAdapter
+                        if (extras !=null)
+                        {
+                            recipeToSearch = extras.getString("title");
+                            //Toast.makeText(GetRecipeActivity.this, recipeToSearch, Toast.LENGTH_SHORT).show();
+                        }
+                        //CollectionReference recipeRef = db.collection("RecipeApp").document("RecipeApp").collection("Users").document("UserData")
+                          //      .collection("Recipes").document("RecipeData").collection("TestRecipeCollection");
+                        //Query recipeQuery = recipeRef.whereEqualTo("Title", recipeToSearch);
+
+
+                        Recipe test;
+                        //new Recipe();
+
+                        for (int k = 0; k < recipeArrayList.size(); k++)
+                        {
+                            test = (Recipe) recipeArrayList.get(k);
+                            //Toast.makeText(GetRecipeActivity.this, test.getTitle(), Toast.LENGTH_SHORT).show();
+                            if (test.getTitle().equals(recipeToSearch))
+                            {
+                                Toast.makeText(GetRecipeActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                recipeTitle.setText(test.getTitle());
+                                recipeIngredients.setText(test.getIngredient());
+                                recipeInstructions.setText(test.getInstructions());
+                                recipeDescription.setText(test.getDescription());
+                                break;
+                            }
+                        }
+                        //test = recipeArrayList.stream()
+                          //      .filter(recipeArrayList -> recipeToSearch.equals(Recipe.getTitle()))
+                            //    .findAny()
+                              //  .orElse(null);
+                        //test = (Recipe)recipeArrayList.get(2);
+
+
 
                     }
                 });
@@ -103,6 +141,9 @@ public class GetRecipeActivity extends AppCompatActivity {
 
 
 
+    }
+    public static void setRecipeTitle(String recipeTitleBroughtIn){
+        recipeToSearch = recipeTitleBroughtIn;
     }
 
    // public static Recipe DisplayRecipeFromCardClick(String recipeName) {
