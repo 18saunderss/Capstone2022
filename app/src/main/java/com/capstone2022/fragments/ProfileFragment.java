@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.capstone2022.HomeActivity;
 import com.capstone2022.LoginActivity;
 import com.capstone2022.R;
+import com.capstone2022.RecipeActivity;
 import com.capstone2022.ResetPasswordActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,6 +34,7 @@ public class ProfileFragment extends Fragment {
 
     private Button buttonSignOut;
     private Button buttonToggleDarkMode;
+    private Button buttonCreateRecipe;
     TextView signOut;
     TextView toggleDarkMode;
     private FirebaseAuth fAuth;
@@ -51,10 +53,12 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         TextView signOut = view.findViewById(R.id.bt_sign_out);
         TextView toggleDarkMode = view.findViewById(R.id.bt_toggle_dark_mode);
+        TextView createRecipe = view.findViewById(R.id.bt_createRecipe);
 
 
         buttonSignOut = (Button) signOut;
         buttonToggleDarkMode = (Button) toggleDarkMode;
+        buttonCreateRecipe = (Button) createRecipe;
         buttonSignOut.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
@@ -64,6 +68,17 @@ public class ProfileFragment extends Fragment {
                 fAuth.getInstance().signOut();
                 Toast.makeText(getActivity(),"Logout Successful", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getActivity(), LoginActivity.class));
+            }
+        });
+
+        buttonCreateRecipe.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+        {
+            @Override
+            public void onClick(View v)
+            {
+                fAuth = FirebaseAuth.getInstance();
+                fAuth.getInstance().signOut();
+                startActivity(new Intent(getActivity(), RecipeActivity.class));
             }
         });
 

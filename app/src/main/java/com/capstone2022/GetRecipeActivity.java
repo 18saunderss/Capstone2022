@@ -25,10 +25,10 @@ public class GetRecipeActivity extends AppCompatActivity {
 
     private static String recipeToSearch;
     private EditText editTextRecipe;
-    private TextView recipeTitle;
-    private TextView recipeIngredients;
-    private TextView recipeInstructions;
-    private TextView recipeDescription;
+    private EditText recipeTitle;
+    private EditText recipeIngredients;
+    private EditText recipeInstructions;
+    private EditText recipeDescription;
 
 
 
@@ -119,7 +119,6 @@ public class GetRecipeActivity extends AppCompatActivity {
                             //Toast.makeText(GetRecipeActivity.this, test.getTitle(), Toast.LENGTH_SHORT).show();
                             if (test.getTitle().equals(recipeToSearch))
                             {
-                                Toast.makeText(GetRecipeActivity.this, "Success", Toast.LENGTH_SHORT).show();
                                 recipeTitle.setText(test.getTitle());
                                 recipeIngredients.setText(test.getIngredient());
                                 recipeInstructions.setText(test.getInstructions());

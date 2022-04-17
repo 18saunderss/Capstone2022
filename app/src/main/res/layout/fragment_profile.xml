@@ -15,7 +15,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="-1dp"
             android:text="Profile" />
 
         <com.google.android.material.button.MaterialButton
@@ -41,6 +41,18 @@
             android:layout_marginTop="404dp"
             android:layout_marginEnd="40dp"
             android:text="@string/bt_toggle_dark_mode" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_createRecipe"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="41dp"
+            android:layout_marginTop="304dp"
+            android:layout_marginEnd="39dp"
+            android:text="create new recipe" />
 
     </RelativeLayout>
 

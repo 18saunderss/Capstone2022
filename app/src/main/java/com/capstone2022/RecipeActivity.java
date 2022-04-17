@@ -268,12 +268,11 @@ public class RecipeActivity extends AppCompatActivity {
                 HashMap<String, String> data1 = new HashMap<String, String>();                                   //Put all of the strings into a hashmap, push the hashmap to the database's new collection at the path specified below
                 data1.put("Title", title);                                                                  //This chunk of code can be used as a template to push data to the Firestore database
                 data1.put("Description",description);
-                int x = 0;                                                                          //Temporary solution to add multiple ingredients
-                for (String s:ingredientsList) {
-                    data1.put("Ingredient" + x, s);
-                    x = (x + 1);
-                }
-                //data1.put("Ingredient",ingredient);
+                                                                          //Temporary solution to add multiple ingredients
+                //for (String s:ingredientsList) {
+                 //   data1.put("Ingredient", s);
+                //}
+                data1.put("Ingredient",ingredient);
 
                 data1.put("Instructions",instructions);
                 db.collection("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData/TestRecipeCollection")
