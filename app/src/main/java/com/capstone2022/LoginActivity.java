@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         editTextLoginEmail = findViewById(R.id.username);
         editTextLoginPassword = findViewById(R.id.password);
         buttonSignIn = findViewById(R.id.login);
-        goToRecipe=findViewById(R.id.goToRecipe);
-        recipeList=findViewById(R.id.recipeList);
+        //goToRecipe=findViewById(R.id.goToRecipe);
+        //recipeList=findViewById(R.id.recipeList);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
@@ -115,37 +115,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 */
-        goToRecipe.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+        /*goToRecipe.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
                                       {
                                           @Override
                                           public void onClick(View v) {
-                                             /* HashMap<String, String> data1 = new HashMap<String, String>();
-                                              data1.put("Description", "this is a test recipe");
-                                              data1.put("Instructions", "put water in it, put it in the microwave");
-                                              data1.put("Recipe", "Easy Mac");
-                                              data1.put("RecipeDescription", "this is the highest quality macaroni and cheese");
-                                              db.collection("/RecipeApp/RecipeApp/Users/UserData/Recipes/RecipeData/TestRecipeCollection")
-                                                      .add(data1)
-                                                      .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                        @Override
-                                                        public void onSuccess(DocumentReference documentReference) {
-                                                            Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
-                                                        }
-                                                      })
-                                                      .addOnFailureListener(new OnFailureListener() {
-                                                          @Override
-                                                          public void onFailure(@NonNull Exception e) {
-                                                              Log.w(TAG, "Error adding document", e);
-                                                          }
-                                                      });
-                                          }
-
-                                              */
                                               startActivity(new Intent(LoginActivity.this, RecipeActivity.class));
                                        }
                                       });
-
-        recipeList.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+*/
+ /*     recipeList.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
         {
             @Override
             public void onClick(View v)
@@ -153,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(LoginActivity.this, RecipeListActivity.class));
             }
         });
-
+*/
 
 
 

@@ -20,7 +20,7 @@
         android:text="@string/action_register"
         app:layout_constraintBottom_toTopOf="@+id/reset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login" />
 
@@ -88,15 +88,13 @@
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="86dp"
         android:text="@string/reset_password"
-        app:layout_constraintBottom_toTopOf="@+id/recipeList"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goToRecipe"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <!--<Button
         android:id="@+id/goToRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,9 +103,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" /> -->
 
-    <Button
+   <!-- <Button
         android:id="@+id/recipeList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -116,6 +114,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reset" />
+        app:layout_constraintTop_toBottomOf="@+id/reset" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
