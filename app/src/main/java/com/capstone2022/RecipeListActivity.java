@@ -58,21 +58,15 @@ public class RecipeListActivity extends AppCompatActivity {
             .collection("Recipes").document("RecipeData").collection("TestRecipeCollection");
     Dialog dialog3;
 
-    Context context = this.context;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_list);
 
         searchRecipe = findViewById(R.id.searchRecipe);
-
         recipeList = findViewById(R.id.recipeList);
         recipeList.setHasFixedSize(true);
         recipeList.setLayoutManager(new LinearLayoutManager(this));
-
         db = FirebaseFirestore.getInstance();
         recipeArrayList = new ArrayList<Recipe>();
         searchRecipeArrayList = new ArrayList<Recipe>();
@@ -80,7 +74,6 @@ public class RecipeListActivity extends AppCompatActivity {
         recipeList = findViewById(R.id.recipeList);
         ArrayAdapter<String> adapter=new ArrayAdapter<>(RecipeListActivity.this, android.R.layout.simple_list_item_1,searchRecipeArrayList);
         recipeList.setAdapter(myAdapter);
-
 
         EventChangeListener();
 
@@ -130,37 +123,17 @@ public class RecipeListActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                         searchRecipe.setText(adapter.getItem(position));
-
-
-                        //Pass recipeName to GetRecipeActivity and display recipe
-                        //String recipeName = itemView.findViewById(R.id.recipeName);
-                        //GetRecipeActivity.DisplayRecipeFromCardClick((String) recipeNameText);
                         String returnRecipeTitle = searchRecipe.getText().toString();
                         Intent myIntent = new Intent(getApplicationContext(), GetRecipeActivity.class);
                         myIntent.putExtra("title",returnRecipeTitle);
                         GetRecipeActivity.setRecipeTitle(returnRecipeTitle);
-                        //context.startActivity(new Intent(getActivity(), GetRecipeActivity.class));
-                        //context.startActivity(GetRecipeActivity.class);
                         v.getContext().startActivity(myIntent);
-
-
-                        //dialog3.dismiss();
-
-
-
-
                         dialog3.dismiss();
-
-
                     }
-
                 });
-
             }
         });
     }
-
-
 
     private void EventChangeListener() {
 
@@ -170,20 +143,14 @@ public class RecipeListActivity extends AppCompatActivity {
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
                         if (error != null){
-
-
                             Log.e("Firestore error", error.getMessage());
                             return;
-
                         }
-
                         for (DocumentChange dc : value.getDocumentChanges()){
-
                             Recipe recipe = dc.getDocument().toObject(Recipe.class);
                             recipeArrayList.add(recipe);
                             searchRecipeArrayList.add(recipe.getTitle());
                             System.out.println(recipeArrayList);
-
                         }
                         myAdapter.notifyDataSetChanged();
 
