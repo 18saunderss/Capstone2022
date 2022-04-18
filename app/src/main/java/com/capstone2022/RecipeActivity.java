@@ -258,20 +258,16 @@ public class RecipeActivity extends AppCompatActivity {
                 String instructions;
 
 
-                title=recipeTitle.getText().toString();                                             //Assign data from the textboxes to the strings
+                title=recipeTitle.getText().toString();                                                                          //Assign data from the textboxes to the strings
                 description=recipeDescription.getText().toString();
                 ingredient=recipeIngredients.getText().toString();
                 instructions=recipeInstructions.getText().toString();
 
                 String[] ingredientsSplit = ingredient.split(System.lineSeparator());
                 ArrayList<String> ingredientsList = new ArrayList<String>(Arrays.asList(ingredientsSplit));
-                HashMap<String, String> data1 = new HashMap<String, String>();                                   //Put all of the strings into a hashmap, push the hashmap to the database's new collection at the path specified below
-                data1.put("Title", title);                                                                  //This chunk of code can be used as a template to push data to the Firestore database
+                HashMap<String, String> data1 = new HashMap<String, String>();                                                              //Put all of the strings into a hashmap, push the hashmap to the database's new collection at the path specified below
+                data1.put("Title", title);                                                                                          //This chunk of code can be used as a template to push data to the Firestore database
                 data1.put("Description",description);
-                                                                          //Temporary solution to add multiple ingredients
-                //for (String s:ingredientsList) {
-                 //   data1.put("Ingredient", s);
-                //}
                 data1.put("Ingredient",ingredient);
 
                 data1.put("Instructions",instructions);

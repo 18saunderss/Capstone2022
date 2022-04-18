@@ -14,12 +14,14 @@ import com.capstone2022.APIActivity;
 import com.capstone2022.HomeActivity;
 import com.capstone2022.LoginActivity;
 import com.capstone2022.R;
+import com.capstone2022.RecipeActivity;
 import com.capstone2022.RecipeListActivity;
 
 
 public class HomeFragment extends Fragment {
     private Button buttonStartAPI;
     private Button buttonSearchDBrecipes;
+    private Button buttonCreateNewRecipe;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -32,10 +34,12 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         TextView searchAPIrandom = view.findViewById(R.id.bt_searchAPIrandom);
         TextView searchDBrecipes = view.findViewById(R.id.bt_searchDBrecipes);
+        TextView createRecipe = view.findViewById(R.id.bt_create_recipe);
 
 
         buttonStartAPI = (Button) searchAPIrandom;
         buttonSearchDBrecipes = (Button) searchDBrecipes;
+        buttonCreateNewRecipe = (Button) createRecipe;
         buttonStartAPI.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -48,6 +52,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getContext(), RecipeListActivity.class));
+
+            }
+        });
+        buttonCreateNewRecipe.setOnClickListener(new View.OnClickListener()                                             //Intent to open RegisterActivity when "Register" button is pressed
+        {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RecipeActivity.class));
 
             }
         });
