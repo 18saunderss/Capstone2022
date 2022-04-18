@@ -4,59 +4,36 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
 
 public class GetRecipeActivity extends AppCompatActivity {
 
     private static String recipeToSearch;
-    private EditText editTextRecipe;
     private EditText recipeTitle;
     private EditText recipeIngredients;
     private EditText recipeInstructions;
     private EditText recipeDescription;
 
-
-
     ArrayList recipeArrayList = new ArrayList<Recipe>();
-    //MyAdapter myAdapter;
-    //RecyclerView recipeList;
-    FirebaseFirestore db = FirebaseFirestore.getInstance();                                         //Firestore Database connection for the recipes
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_recipe);
 
-        //recipeList = findViewById(R.id.recipeList);
-        //recipeList.setHasFixedSize(true);
-        //recipeList.setLayoutManager(new LinearLayoutManager(this));
-
         db = FirebaseFirestore.getInstance();
         recipeArrayList = new ArrayList<Recipe>();
-        //myAdapter = new MyAdapter(GetRecipeActivity.this,recipeArrayList);
-        //recipeList = findViewById(R.id.recipeList);
-
-        //recipeList.setAdapter(myAdapter);
-
         EventChangeListener();
-
-
     }
 
     private void EventChangeListener() {
@@ -70,8 +47,6 @@ public class GetRecipeActivity extends AppCompatActivity {
 
                         if (error != null){
 
-
-
                             Log.e("Firestore error", error.getMessage());
                             return;
 
@@ -80,13 +55,8 @@ public class GetRecipeActivity extends AppCompatActivity {
                         for (DocumentChange dc : value.getDocumentChanges()){
 
                             recipeArrayList.add(dc.getDocument().toObject(Recipe.class));
-
-
-
-                            //System.out.println(recipeArrayList);
-
                         }
-                        //myAdapter.notifyDataSetChanged();
+
                         recipeTitle = findViewById(R.id.textRecipeTitle);
                         recipeIngredients = findViewById(R.id.textRecipeIngredients);
                         recipeInstructions = findViewById(R.id.textRecipeInstructions);
@@ -103,20 +73,13 @@ public class GetRecipeActivity extends AppCompatActivity {
                         if (extras !=null)
                         {
                             recipeToSearch = extras.getString("title");
-                            //Toast.makeText(GetRecipeActivity.this, recipeToSearch, Toast.LENGTH_SHORT).show();
                         }
-                        //CollectionReference recipeRef = db.collection("RecipeApp").document("RecipeApp").collection("Users").document("UserData")
-                          //      .collection("Recipes").document("RecipeData").collection("TestRecipeCollection");
-                        //Query recipeQuery = recipeRef.whereEqualTo("Title", recipeToSearch);
-
 
                         Recipe test;
-                        //new Recipe();
 
                         for (int k = 0; k < recipeArrayList.size(); k++)
                         {
                             test = (Recipe) recipeArrayList.get(k);
-                            //Toast.makeText(GetRecipeActivity.this, test.getTitle(), Toast.LENGTH_SHORT).show();
                             if (test.getTitle().equals(recipeToSearch))
                             {
                                 recipeTitle.setText(test.getTitle());
@@ -126,27 +89,11 @@ public class GetRecipeActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-                        //test = recipeArrayList.stream()
-                          //      .filter(recipeArrayList -> recipeToSearch.equals(Recipe.getTitle()))
-                            //    .findAny()
-                              //  .orElse(null);
-                        //test = (Recipe)recipeArrayList.get(2);
-
-
-
                     }
                 });
+            }
 
-
-
-
-    }
-    public static void setRecipeTitle(String recipeTitleBroughtIn){
-        recipeToSearch = recipeTitleBroughtIn;
-    }
-
-   // public static Recipe DisplayRecipeFromCardClick(String recipeName) {
-
-    //}
-
-}
+                public static void setRecipeTitle(String recipeTitleBroughtIn){
+                    recipeToSearch = recipeTitleBroughtIn;
+                }
+            }

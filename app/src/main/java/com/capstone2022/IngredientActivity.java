@@ -30,14 +30,11 @@ import java.util.ArrayList;
 
 public class IngredientActivity extends AppCompatActivity {
 
-    //BottomNavigationView bottomNavigationView;
-
     private Button buttonAddIngredient;
     private EditText editTextIngredient;
     DatabaseReference addIngredientDbRef;
     DatabaseReference getIngredientDbRef;
     private ListView listView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +44,6 @@ public class IngredientActivity extends AppCompatActivity {
         buttonAddIngredient = findViewById(R.id.addIngredient);
         editTextIngredient = findViewById(R.id.ingredient);
         addIngredientDbRef = FirebaseDatabase.getInstance().getReference().child("Ingredients");
-
 
         buttonAddIngredient.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +104,6 @@ public class IngredientActivity extends AppCompatActivity {
 
             }
        });
-
         listView.setAdapter(adapter);
      }
 }
