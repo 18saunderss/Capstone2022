@@ -74,7 +74,7 @@ public class APIActivity extends AppCompatActivity {
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
 
-        searchView_home.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+      /*  searchView_home.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(APIActivity.this, "Will be added soon!", Toast.LENGTH_SHORT).show();
@@ -86,7 +86,7 @@ public class APIActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+*/
     }
 
     private final RandomAPIResponseListener listener = new RandomAPIResponseListener() {
