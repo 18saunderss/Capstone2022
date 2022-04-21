@@ -39,21 +39,6 @@
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.cardview.widget.CardView
-        app:cardBackgroundColor="@color/white"
-        android:layout_margin="12dp"
-        app:cardElevation="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView_home"
-            app:searchIcon="@drawable/ic_search"
-            app:iconifiedByDefault="false"
-            app:queryHint="Search Your Quick Meals..."
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </androidx.cardview.widget.CardView>
-
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="gone"
         android:id="@+id/recycler_random"

@@ -60,7 +60,7 @@ public class APIActivity extends AppCompatActivity {
         //api
         recyclerView = findViewById(R.id.recycler_random);
         spinner = findViewById(R.id.spinner_tags);
-        searchView_home = findViewById(R.id.searchView_home);
+        //searchView_home = findViewById(R.id.searchView_home);
         //progressBar = (ProgressBar)findViewById(R.id.loader);
         //Sprite doubleBounce = new Wave();
         //progressBar.setIndeterminateDrawable(doubleBounce);
@@ -74,7 +74,7 @@ public class APIActivity extends AppCompatActivity {
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
 
-        searchView_home.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+      /*  searchView_home.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(APIActivity.this, "Will be added soon!", Toast.LENGTH_SHORT).show();
@@ -86,7 +86,7 @@ public class APIActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+*/
     }
 
     private final RandomAPIResponseListener listener = new RandomAPIResponseListener() {
