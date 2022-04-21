@@ -60,7 +60,7 @@ public class APIActivity extends AppCompatActivity {
         //api
         recyclerView = findViewById(R.id.recycler_random);
         spinner = findViewById(R.id.spinner_tags);
-        searchView_home = findViewById(R.id.searchView_home);
+        //searchView_home = findViewById(R.id.searchView_home);
         //progressBar = (ProgressBar)findViewById(R.id.loader);
         //Sprite doubleBounce = new Wave();
         //progressBar.setIndeterminateDrawable(doubleBounce);
