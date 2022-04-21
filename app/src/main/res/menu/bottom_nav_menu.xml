@@ -12,15 +12,15 @@
         android:icon="@drawable/ic_list"
         android:title="Shopping List"/>
 
-    <item
+    <!-- <item
         android:id="@+id/ic_search"
         android:icon="@drawable/ic_search"
-        android:title="Search"/>
+        android:title="Search"/> -->
 
-    <item
+    <!-- <item
         android:id="@+id/ic_books"
         android:icon="@drawable/ic_books"
-        android:title="My Books"/>
+        android:title="My Books"/> -->
 
     <item
         android:id="@+id/ic_profile"

@@ -56,11 +56,11 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                BookFragment bookFragment = new BookFragment();
+                //BookFragment bookFragment = new BookFragment();
                 HomeFragment homeFragment = new HomeFragment();
                 ListFragment listFragment = new ListFragment();
                 ProfileFragment profileFragment = new ProfileFragment();
-                SearchFragment searchFragment = new SearchFragment();
+                //SearchFragment searchFragment = new SearchFragment();
                 Fragment fragment = null;
                 switch(item.getItemId()){
                     case R.id.ic_home:
@@ -70,12 +70,12 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.ic_list:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, listFragment).commit();
                         break;
-                    case R.id.ic_search:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, searchFragment).commit();
-                        break;
-                    case R.id.ic_books:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, bookFragment).commit();
-                        break;
+                    //case R.id.ic_search:
+                      //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, searchFragment).commit();
+                        //break;
+                    //case R.id.ic_books:
+                      //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, bookFragment).commit();
+                        //break;
                     case R.id.ic_profile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, profileFragment).commit();
                         break;

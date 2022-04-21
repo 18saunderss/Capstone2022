@@ -144,7 +144,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
             recycler_meal_similar.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL));
             similarListAdapter = new SimilarListAdapter(RecipeDetailActivity.this, response, similarOnClickListener);
             recycler_meal_similar.setAdapter(similarListAdapter);
-            progressBar.setVisibility(View.GONE);
+            //progressBar.setVisibility(View.GONE);
         }
 
         @Override
