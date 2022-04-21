@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 //BookFragment bookFragment = new BookFragment();
                 HomeFragment homeFragment = new HomeFragment();
-                ListFragment listFragment = new ListFragment();
+                //ListFragment listFragment = new ListFragment();
                 ProfileFragment profileFragment = new ProfileFragment();
                 //SearchFragment searchFragment = new SearchFragment();
                 Fragment fragment = null;
@@ -67,9 +67,9 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, homeFragment).commit();
 
                         break;
-                    case R.id.ic_list:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, listFragment).commit();
-                        break;
+                    //case R.id.ic_list:
+                      //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, listFragment).commit();
+                        //break;
                     //case R.id.ic_search:
                       //  getSupportFragmentManager().beginTransaction().replace(R.id.main_container, searchFragment).commit();
                         //break;
