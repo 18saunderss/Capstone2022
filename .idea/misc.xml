@@ -33,6 +33,7 @@
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_get_recipe.xml" value="0.3390625" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_ingredient.xml" value="0.18568840579710144" />
+        <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_ingredient_textview.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_login.xml" value="0.268" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_login2.xml" value="0.3917572463768116" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/activity_recipe.xml" value="0.18568840579710144" />
@@ -50,6 +51,7 @@
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/fragment_profile.xml" value="0.389937106918239" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/fragment_search.xml" value="0.5492443981240229" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/landing_page.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/list_ingredients.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/random_api_list.xml" value="0.1" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/layout/tab_from_home.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Justin/AndroidStudioProjects/Capstone2022/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />

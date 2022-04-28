@@ -14,9 +14,9 @@
             android:id="@+id/bt_searchAPIrandom"
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:textColor="@color/black"
+            android:layout_weight="1"
             android:text="Search the Web"
-            android:layout_weight="1"/>
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,10 +42,17 @@
 
         <Button
             android:id="@+id/bt_create_recipe"
-            android:layout_width="0dip"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Create New Recipe" />
+
+        <Button
+            android:id="@+id/bt_shoppingCart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Shopping Cart" />
 
     </LinearLayout>
 </LinearLayout>

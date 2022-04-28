@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.capstone2022.HomeActivity;
+import com.capstone2022.IngredientActivity;
 import com.capstone2022.LoginActivity;
 import com.capstone2022.R;
 import com.capstone2022.RecipeActivity;
@@ -34,7 +35,6 @@ public class ProfileFragment extends Fragment {
 
     private Button buttonSignOut;
     private Button buttonToggleDarkMode;
-    private Button buttonCreateRecipe;
     TextView signOut;
     TextView toggleDarkMode;
     private FirebaseAuth fAuth;
@@ -70,8 +70,6 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LoginActivity.class));
             }
         });
-
-
 
 
 

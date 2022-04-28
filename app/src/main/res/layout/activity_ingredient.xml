@@ -18,14 +18,15 @@
 
     <EditText
         android:id="@+id/ingredient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="275dp"
+        android:layout_height="49dp"
         android:layout_marginTop="52dp"
         android:layout_marginBottom="49dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Add Ingredient"
+        android:text="Add to Shopping Cart"
+        android:textIsSelectable="false"
         app:layout_constraintBottom_toTopOf="@+id/_dynamic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -34,16 +35,59 @@
 
     <ListView
         android:id="@+id/ingredientList"
-        android:layout_width="414dp"
-        android:layout_height="431dp"
+        android:layout_width="376dp"
+        android:layout_height="173dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredient"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.969" />
+
+    <ListView
+        android:id="@+id/shoppingCart"
+        android:layout_width="375dp"
+        android:layout_height="137dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredient"
+        app:layout_constraintVertical_bias="0.354" />
+
+    <TextView
+        android:id="@+id/shoppingTitle"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="224dp"
+        android:text="Shopping Cart"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ingredientTitle"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="428dp"
+        android:text="All Ingredients"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
